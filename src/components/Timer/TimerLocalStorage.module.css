@@ -1,0 +1,20 @@
+
+.timer{
+    padding:30px;
+    border:3px solid teal;
+    margin:100px auto;
+    width:fit-content
+}
+.time__count{
+    font-size: 4rem;
+    margin: 10px 0;
+}
+.timer button{
+    margin:0 15px;
+    width:100px;
+    background:rgb(107, 107, 114);
+    color:#fff;
+    border:unset;
+    height: 25px;
+    cursor: pointer;
+}

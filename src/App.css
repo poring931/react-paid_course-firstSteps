@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.commentsList{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.commentsList>div{
+ width: 13%;
+ padding:5px;
+ border:1px solid gray;
+ cursor:pointer;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+<body>
+    
+    <div id="root">
+
+    </div>
+
+
+    <script>
+
+        const Book = (props) => {
+            return React.createElement('div', {}, [
+                React.createElement('h2', {}, props.name),
+                React.createElement('p', {},  props.year),
+                React.createElement('p', {}, `${ props.price} рублей`)
+            ])
+        }
+
+        const App = () => {
+            return React.createElement('div', {}, [
+                React.createElement( 'h1', {id: 'hello', className: 'class1'}, 'hello from react' ),
+                React.createElement(Book, {name: 'Js for begginers', year: 2018 , price: 1000}),
+                React.createElement(Book, {name: 'React', year: 2020 , price: 3200}),
+                React.createElement(Book, {name: 'Php', year: 2021 , price: 2200}),
+            ])
+        }
+
+        ReactDOM.render(React.createElement(App), document.getElementById('root'))
+    </script>
+
+
+</body>
+</html>
