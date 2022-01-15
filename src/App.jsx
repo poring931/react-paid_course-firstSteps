@@ -1,88 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import Times from './components/Timer/TimerLocalStorage';
-import PostList from './components/postList/PostList';
-import Form from './components/Form/Form';
-import TickTackToe from './components/ticTacToe/TickTackToe';
+import React, { useState } from 'react'
+import App_classComponent from './App_classComponent'
 
-class App extends React.Component {
+const App = () => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-      someKey: false,
-      posts:[],
-      loading: true,
-      comments:[],
-   
-    }
-    this.handleClickMinus = this.handleClickMinus.bind(this)
+
+  const [countClick, setCount] =useState(0);
+  
+  const decrement = () =>{
+    setCount(countClick - 1)
+  }
+  const increment = () =>{
+    setCount(countClick + 1)
   }
 
 
-  handleClickMinus() {
-    this.setState({count: this.state.count - 1})
-  }
-
-  componentDidMount() {
-    
-    console.log('componentDidMount')
-      fetch('https://jsonplaceholder.cypress.io/posts')
-        .then(response => response.json())
-        .then(data => this.setState({posts: data.slice(1, 10), loading:false}))
-
-    this.timerId = setInterval(() => {
-        fetch('https://jsonplaceholder.cypress.io/comments')
-          .then(response => response.json())
-          .then(data => this.setState({comments: data, }))
-    }, 20000)
-
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate')
-
-  }
-
-  componentWillUnmount(){
-    clearInterval(this.timerId)
-  }
+  return (
+    <div>
+      <button onClick={decrement}>Minus</button>
+      <button onClick={() => setCount(countClick + 1)}>{countClick}</button>
+      <button onClick={increment}>Plus</button>
 
 
-  removePost = (id) => {
-    // console.log('setState updated');
-    // console.log(id);
-    let newPosts = this.state.posts.filter(post=> post.id !== id)
-    this.setState({posts: newPosts})
-
-  }
 
 
-  render(){
-    return (
-      <div className="App">
-        <Form/>
-        <TickTackToe/>
-        <button onClick={this.handleClickMinus}>-</button>
-        <span>{this.state.count}</span>
-        <button onClick={()=>this.setState({count: this.state.count + 1})}>+</button>
-        <Times/>
-                <h3>Подгруженные посты с возможностью удаления</h3>
 
-        
-          {
-            this.state.loading ? (<h3>Loading ....</h3>) 
-              : 
-            (
-             <PostList posts={this.state.posts} delFcn={this.removePost}/>
-            )
-          }
-      </div>
-    )
-  }
 
+
+
+      <hr  style={{marginTop:'100px'}}/>
+      <h1>Классовые компоненты</h1>
+      <App_classComponent/>
+    </div>
+  )
 }
 
-export default App;
+export default App
