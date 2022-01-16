@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import Times from './cls_components/Timer/TimerLocalStorage';
