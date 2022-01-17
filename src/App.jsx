@@ -5,6 +5,8 @@ import State from './fcn_components/HooksComp/State'
 import Books from './fcn_components/HooksComp/BooksList/Books'
 import Context from './fcn_components/HooksComp/Context'
 import App_classComponent from './App_classComponent'
+import { UseCallBack } from './fcn_components/UseCallBack'
+import LayOutEffect from './fcn_components/LayOutEffect'
 
 const App = () => {
 
@@ -36,6 +38,11 @@ const App = () => {
       <Context>
         <Books />
       </Context>
+      <h2>Hooks: useMemo</h2>
+      <span>в компоненте вызывается 2 кнопки с увеличением счетчика. При клике на одну из них - рендер происходит 1 раз</span> <br /> 
+      <UseCallBack/>
+      <h2>Hooks: useLayoutEffect</h2>
+      <LayOutEffect/>
 
 
 
