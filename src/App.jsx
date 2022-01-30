@@ -2,16 +2,19 @@ import React, { useState } from 'react'
 import Times from './fcn_components/Timer'
 import Clicker from './fcn_components/Clicker'
 import State from './fcn_components/HooksComp/State'
+import Reducer from './fcn_components/HooksComp/Reducer'
 import Books from './fcn_components/HooksComp/BooksList/Books'
 import Context from './fcn_components/HooksComp/Context'
 import App_classComponent from './App_classComponent'
 import { UseCallBack } from './fcn_components/UseCallBack'
 import LayOutEffect from './fcn_components/LayOutEffect'
+import TimerReducer from './fcn_components/TimerReducer'
 
 const App = () => {
 
   const [isClicker, setClicker] =useState(false)
   const [isTimer, setTimer] =useState(false)
+  const [isTimerReducer, setTimerReducer] =useState(false)
 
   
 
@@ -27,6 +30,11 @@ const App = () => {
         <button onClick={() => setTimer(!isTimer)}>Toggle timer </button>
       <br />
       { isTimer && <Times/>}
+      <hr/>
+
+        <button onClick={() => setTimerReducer(!isTimerReducer)}>Toggle REDUCER timer </button>
+      <br />
+      { isTimerReducer && <TimerReducer/>}
       
       <hr  style={{marginTop:'100px'}}/>
       <h2>Hooks: useState</h2>
@@ -43,6 +51,7 @@ const App = () => {
       <UseCallBack/>
       <h2>Hooks: useLayoutEffect</h2>
       <LayOutEffect/>
+      <Reducer/>
 
 
 
